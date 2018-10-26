@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +13,8 @@
     "aws-sdk": "^2.338.0",
     "vantage-watch": "^1.0.2",
     "vorpal": "^1.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
   }
 }
