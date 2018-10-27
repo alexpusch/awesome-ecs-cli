@@ -1,12 +1,13 @@
 const vorpal = require('vorpal')();
 const createEnterResourceFn = require('./createEnterResourceFn');
-const AWS = require('aws-sdk');
-var ecs = new AWS.ECS({ apiVersion: '2014-11-13', region: 'us-east-1' });
+const { ecs } = require('./aws');
+const traversalCommands = require('./commands/traversalCommands');
 
 const main = async () => {
   try {
     const store = await getInitialStore();
     const enterResource = createEnterResourceFn(vorpal, store);
+    traversalCommands(vorpal, store, enterResource);
     enterResource(store.resourceNode);
   } catch (e) {
     console.error(e);

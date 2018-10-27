@@ -1,6 +1,14 @@
-const serviceCommands = (vorpal, store, enterState) => [
+const { ecs } = require('../aws');
+
+const serviceCommands = (vorpal, store, enterResource) => [
   vorpal.command('desc', 'describe service').action(async function() {
-    this.log('desc');
+    const res = await ecs
+      .describeServices({
+        cluster: store.currentResourceNode.parent.arn,
+        services: [store.currentResourceNode.arn]
+      })
+      .promise();
+    this.log(res);
   })
 ];
 
