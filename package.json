@@ -1,19 +1,48 @@
 {
-  "name": "awesome-ecs-cli",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "aecs",
+  "description": "Awesome AWS ECS cli",
+  "version": "0.0.0",
+  "author": "Alex Puschinsky @alexpusch",
+  "bin": {
+    "aecs": "./bin/run"
+  },
+  "bugs": "https://github.com/alexpusch/awesome-ecs-cli/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.4",
+    "@oclif/config": "^1.8.8",
+    "@oclif/plugin-help": "^2.1.3"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.19.4",
+    "globby": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/alexpusch/awesome-ecs-cli",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "aecs",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "alexpusch/awesome-ecs-cli",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexpusch/awesome-ecs-cli.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexpusch/awesome-ecs-cli/issues"
-  },
-  "homepage": "https://github.com/alexpusch/awesome-ecs-cli#readme"
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  }
 }

@@ -1,2 +1,7 @@
 node_modules
 notes
+*-debug.log
+*-error.log
+/.nyc_output
+/dist
+/tmp
