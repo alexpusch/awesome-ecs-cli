@@ -1,5 +1,6 @@
 node_modules
 notes
+notes.todo
 *-debug.log
 *-error.log
 /.nyc_output

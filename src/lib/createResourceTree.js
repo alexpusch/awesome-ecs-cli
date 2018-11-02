@@ -8,6 +8,8 @@ const createResourceTree = async () => {
 
   await createMetadataJson('.', { profile: process.env.AWS_PROFILE });
   await Promise.all(res.clusterArns.map(createClusterResourceTree));
+
+  await makeFsReadOnly('.');
 };
 
 const createClusterResourceTree = async clusterArn => {
@@ -39,5 +41,35 @@ const createServiceResourceTree = async (clusterArn, serviceArn) => {
 };
 
 const getNameFromArn = arn => arn.split('/')[1];
+
+const makeFsReadOnly = async fullpath => {
+  const mod =
+    fs.constants.S_IRUSR |
+    fs.constants.S_IXUSR |
+    fs.constants.S_IRGRP |
+    fs.constants.S_IXGRP;
+
+  await recursiveChmod(fullpath, mod);
+};
+
+const recursiveChmod = async (fullpath, mod) => {
+  const isDir = (await fs.lstat(fullpath)).isDirectory();
+  const childDirs = isDir ? await fs.readdir(fullpath) : [];
+  const isTopDir = fullpath === '.';
+  if (childDirs.length === 0 && !isTopDir) {
+    await fs.chmod(fullpath, mod);
+  } else {
+    await Promise.all(
+      childDirs.map(
+        async childDir =>
+          await recursiveChmod(path.join(fullpath, childDir), mod)
+      )
+    );
+
+    if (!isTopDir) {
+      await fs.chmod(fullpath, mod);
+    }
+  }
+};
 
 module.exports = createResourceTree;
