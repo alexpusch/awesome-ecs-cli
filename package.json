@@ -1,12 +1,12 @@
 {
-  "name": "aecs",
-  "description": "Awesome AWS ECS cli",
+  "name": "xcs",
+  "description": "eXtremely awesome AWS ECS cli",
   "version": "0.0.0",
   "author": "Alex Puschinsky @alexpusch",
   "bin": {
-    "aecs": "./bin/run"
+    "xcs": "./bin/run"
   },
-  "bugs": "https://github.com/alexpusch/awesome-ecs-cli/issues",
+  "bugs": "https://github.com/alexpusch/xcs/issues",
   "dependencies": {
     "@oclif/command": "^1.5.4",
     "@oclif/config": "^1.8.8",
@@ -29,7 +29,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/alexpusch/awesome-ecs-cli",
+  "homepage": "https://github.com/alexpusch/xcs",
   "keywords": [
     "oclif"
   ],
@@ -37,13 +37,13 @@
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",
-    "bin": "aecs",
+    "bin": "xcs",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-autocomplete"
     ]
   },
-  "repository": "alexpusch/awesome-ecs-cli",
+  "repository": "alexpusch/xcs",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "oclif-dev manifest && oclif-dev readme",

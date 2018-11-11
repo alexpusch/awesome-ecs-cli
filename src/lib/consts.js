@@ -1,3 +1,3 @@
 module.exports = {
-  METADATA_FILE_NAME: '.aecs.json'
+  METADATA_FILE_NAME: '.xcs.json'
 };
