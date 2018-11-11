@@ -1,6 +1,7 @@
 const { Command, flags } = require('@oclif/command');
 const readMetadataJson = require('../lib/readMetadataJson');
 const updateService = require('../lib/updateService');
+const ora = require('ora');
 
 class UpdateCommand extends Command {
   async run() {
@@ -12,7 +13,15 @@ class UpdateCommand extends Command {
 
     const { clusterArn, serviceArn } = currentMetadata;
     const { flags } = this.parse(UpdateCommand);
-    await updateService(clusterArn, serviceArn, flags);
+
+    const spinner = ora(`Updating service ${serviceArn}`).start();
+    try {
+      await updateService(clusterArn, serviceArn, flags);
+      spinner.succeed();
+    } catch (e) {
+      spinner.fail();
+      this.error(e.message);
+    }
   }
 }
 

@@ -5,7 +5,7 @@
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/xcs.svg)](https://npmjs.org/package/xcs)
 [![Downloads/week](https://img.shields.io/npm/dw/xcs.svg)](https://npmjs.org/package/xcs)
-[![License](https://img.shields.io/npm/l/xcs.svg)](https://github.com/alexpusch/xcs/blob/master/package.ma
+[![License](https://img.shields.io/npm/l/xcs.svg)
 
 [AWS Elastic Container Service](https://aws.amazon.com/ecs/) is Amazons managed docker container orchestration service.
 
@@ -13,6 +13,7 @@ This tool offers a intuitive cli for every day operations over ECS. The idea is 
 
 <!-- toc -->
 
+- [XCS - eXtremely awesome ECS CLI](#xcs-e-xtremely-awesome-ecs-cli)
 - [Usage](#usage)
 - [Commands](#commands)
   <!-- tocstop -->
@@ -25,6 +26,8 @@ This tool offers a intuitive cli for every day operations over ECS. The idea is 
 $ npm install -g xcs
 $ xcs COMMAND
 running command...
+$ xcs (-v|--version|version)
+xcs/0.0.0 linux-x64 node-v8.10.0
 $ xcs --help [COMMAND]
 USAGE
   $ xcs COMMAND
